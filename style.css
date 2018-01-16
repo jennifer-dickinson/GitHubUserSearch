@@ -1,0 +1,103 @@
+body {
+  background-color: #f7f7f7;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 18px;
+}
+
+div.container {
+  margin:auto;
+  width: 75%;
+  overflow:auto;
+}
+input{
+  font-family: inherit;
+}
+div #followers {
+  padding: 0% 2% 0% 2%;
+  overflow:auto;
+  text-align:center;
+}
+
+.follower{
+  padding: 1% 1% 1% 1%;
+  width: 18%;
+  height: auto;
+  overflow: auto;
+  display:inline-block;
+  float:left;
+}
+
+.followerImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+
+div.followerName {
+  font-size: 10px;
+}
+
+div#searchBox{
+  padding:0 2% 0 2%;
+  width:100%;
+  display:block;
+  overflow:auto;
+}
+div#srcUser {
+  float:left;
+  font-family: inherit;
+  font-size:12px;
+  border:1px solid black;
+  padding:5px;
+  width: 50%;
+  hieght: fixed;
+  display:inline-block;
+}
+div#srcUser:focus {
+  outline-width:0;
+}
+div#MoreLink {
+  clear: both !important;
+  float: right !important;
+  margin-right: 1% !important;
+}
+div#search, div#MoreLink  {
+  float:left;
+  font-family: inherit;
+  font-size: 12px;
+  border: 1px solid black;
+  margin-left: 5px;
+  padding: 5px;
+  display:inline-block;
+  user-select: none;
+}
+
+div#search:active, div#MoreLink:active  {
+  float:left;
+  font-family: inherit;
+  font-size: 12px;
+  color: #f7f7f7;
+  background-color: #3C3C3C;
+  border: 1px solid black;
+  margin-left: 5px;
+  padding: 5px;
+  display:inline-block;
+}
+div#fill {
+  width = 100%;
+}
+div#vfill {
+  height = 100%;
+}
+
+div#UserInfo {
+  padding: 2% 2% 2% 2%;
+  overflow:auto;
+}
+img#avatarIMG {
+  width: 25%;
+  height: auto;
+  float: left;
+  border-radius: 10%;
+  margin: 0 2% 0 0;
+}
