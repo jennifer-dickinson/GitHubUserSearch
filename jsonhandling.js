@@ -72,16 +72,13 @@ function getUser() {
   fetch(url)
     .then(function(r) {
       if(!r.ok) throw Error("Could not find user");
-      document.getElementById('loadStatus').innerText = "Loading...";
       return r.json();
     })
     .then(function(j) {
-      document.getElementById('loadStatus').innerText = "";
       loadUser(j);
     })
-    .catch(function(error) {
+    .catch(function error(error) {
       alert("Could not find user");
-      console.log(error);
     });
   };
 

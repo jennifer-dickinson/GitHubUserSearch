@@ -12,6 +12,13 @@ div #bio
     max-width: 100%;
     margin: 2% 2% 2% 2%;
 }
+div#Site
+{
+    display: flex;
+    flex-direction: column;
+
+    min-height: 50vh;
+}
 div.container
 {
     font-size: .8em;
@@ -19,24 +26,26 @@ div.container
     overflow: none;
 
     width: 80%;
-    height: auto;
+    min-height: 90vh;
     margin: auto;
     margin-bottom: 5%;
+
+    flex: 1;
 }
 #numFollowers
 {
+    clear:both;
     width: auto;
     height: auto;
     margin: 1% 1% 1% 1%;
-    padding: 0;
+    padding: 1em 0 0 0;
 }
 
 div #followers
 {
-    overflow: hidden;
-
-    margin: 2% 2% 2% 2%;
-
+    /* overflow: hidden; */
+    clear: both;
+    margin: 1em 1em 1em 1em;
     text-align: center;
 }
 
@@ -81,6 +90,11 @@ div.followerName
 
     width: 100%;
     height: 1em;
+}
+
+div#footer {
+  font-size: .75em;
+  text-align:center;
 }
 
 div#searchBox
@@ -152,6 +166,13 @@ div#UserInfo
 
     padding: 2% 2% 2% 2%;
 }
+div#avatar {
+  width: auto;
+  height:auto;
+  display:block;
+
+  border: 1px solid green;
+}
 img#userAvatar
 {
     float: left;
@@ -160,6 +181,5 @@ img#userAvatar
     min-width: 150px;
     height: auto;
     margin: 0 2% 0 0;
-
-    border-radius: 10%;;
+    border-radius: 10%;
 }
