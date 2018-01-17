@@ -7,6 +7,7 @@ body
 }
 div #bio
 {
+    margin: 2% 2% 2% 2%;
     min-width: 200px;
     max-width: 100%;
 }
@@ -19,7 +20,7 @@ div.container
     width: 75%;
     height: auto;
     margin: auto;
-    margin-bottom:5%;
+    margin-bottom: 5%;
 }
 div #followers
 {
@@ -61,29 +62,32 @@ div#searchBox
     overflow: auto;
 
     width: 100%;
+    height: auto;
     margin: 0 2% 0 2%;
 }
 div#searchButton,
 div#searchInput,
 div#MoreLink
 {
-    font-family: inherit;
+    font-family: monospace;
     font-size: .75em;
 
     display: inline-block;
     float: left;
+    overflow: scroll;
 
     width: 50%;
+    height: 1.35em;
     margin: .30em;
     padding: .5em 1em .5em 1em;
 
     border: 1px solid black;
-
-    hieght: fixed;
 }
 div#searchInput
 {
     min-width: 150px;
+
+    text-overflow: hidden;
 
     outline-width: 0;
 }

@@ -3,7 +3,6 @@ function getFollowers(followers_url, page, count, numFollowers) {
   fetch(followers_url + "?per_page="+ show + "&page=" + page)
     .then( function (fL) {return fL.json()})
     .then( function (users) {
-      // console.log(users);
       var followers = document.getElementById('followers')
 
       for(var i = 0; i < users.length; i++) {
@@ -53,8 +52,6 @@ function getFollowers(followers_url, page, count, numFollowers) {
 
 
 function loadUser(user) {
-  console.log(user);
-
   document.getElementById('followers').innerText = "";
   document.getElementById('searchInput').value = user.login;
   document.getElementById('username').innerText = user.login;
@@ -68,7 +65,9 @@ function loadUser(user) {
 }
 
 function getUser() {
-  name = document.getElementById('searchInput').innerText;
+  text = document.getElementById('searchInput');
+  text.innerText = text.innerText.replace(/[^\w]/g, '');
+  name = text.innerText;
   var url = 'https://api.github.com/users/' + name;
   fetch(url)
     .then(function(r) {
@@ -78,7 +77,6 @@ function getUser() {
     })
     .then(function(j) {
       document.getElementById('loadStatus').innerText = "";
-      console.log(j);
       loadUser(j);
     })
     .catch(function(error) {
@@ -90,14 +88,32 @@ function getUser() {
 document.getElementById('searchButton').addEventListener('click', function() {
   getUser();
 });
+document.getElementById('searchInput').addEventListener('paste', function(e) {
+  setTimeout(function() {
+    console.log(e);
+    // Get pasted data via clipboard API
+    var clipboardData = e.clipboardData || window.clipboardData || e.originalEvent.clipboardDat;
+    var pastedData = clipboardData.getData('text');
+    console.log(pastedData);
+
+    var input = document.getElementById('searchInput');
+    var childs = input.children;
+    var newString = ""
+
+    for (var i = 0; i < childs.length; i++)
+      newString += childs[i].innerText.replace(/[^\w]/g, '');
+
+    input.innerText = newString.substring(0,20);
+
+    ;}, 0);
+
+});
 document.getElementById('searchInput').addEventListener('keypress', function(e) {
   var key = e.which || e.keyCode;
   if (key === 13) {
-    // document.getElementById('searchInput').replace(/\n$/, '');
     e.preventDefault();
     getUser();
   }
 });
-
 document.getElementById('searchInput').innerText = "jennifersalas";
 getUser();
