@@ -5,11 +5,12 @@ body
 
     background-color: #f7f7f7;
 }
+
 div #bio
 {
-    margin: 2% 2% 2% 2%;
     min-width: 200px;
     max-width: 100%;
+    margin: 2% 2% 2% 2%;
 }
 div.container
 {
@@ -17,11 +18,19 @@ div.container
 
     overflow: none;
 
-    width: 75%;
+    width: 80%;
     height: auto;
     margin: auto;
     margin-bottom: 5%;
 }
+#numFollowers
+{
+    width: auto;
+    height: auto;
+    margin: 1% 1% 1% 1%;
+    padding: 0;
+}
+
 div #followers
 {
     overflow: hidden;
@@ -35,12 +44,25 @@ div #followers
 {
     display: inline-block;
     float: left;
-    /* overflow: ellipses; */
 
-    width: 10%;
+    width: 5em;
     min-width: 75px;
     height: auto;
     margin: 1% 1% 1% 1%;
+    padding: 1% 2% 1% 2%;
+
+    border-radius: 10%;
+}
+.follower:hover
+{
+    color: #f7f7f7;
+    background-color: #c0c0c0 ;
+}
+
+.follower:active
+{
+    color: #f7f7f7;
+    background-color: #3c3c3c ;
 }
 
 .followerAvatar
@@ -54,14 +76,19 @@ div #followers
 div.followerName
 {
     font-size: .50em;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 1em;
 }
 
 div#searchBox
 {
     display: block;
-    overflow: auto;
+    overflow: hidden;
 
-    width: 100%;
+    width: auto;
     height: auto;
     margin: 0 2% 0 2%;
 }
@@ -70,21 +97,22 @@ div#searchInput,
 div#MoreLink
 {
     font-family: monospace;
-    font-size: .75em;
+    font-size: .75em !important;
 
     display: inline-block;
     float: left;
     overflow: scroll;
 
     width: 50%;
-    height: 1.35em;
-    margin: .30em;
-    padding: .5em 1em .5em 1em;
+    height: 1.35em !important;
+    margin: .30em !important;
+    padding: .5em 1em .5em 1em !important;
 
     border: 1px solid black;
 }
 div#searchInput
 {
+    width: 20em;
     min-width: 150px;
 
     text-overflow: hidden;
@@ -107,11 +135,15 @@ div#MoreLink
 div#searchButton:active,
 div#MoreLink:active
 {
-    display: inline-block;
-
     color: #f7f7f7;
-    border: 1px solid black;
     background-color: #3c3c3c;
+}
+
+div#searchButton:hover,
+div#MoreLink:hover
+{
+    color: #f7f7f7;
+    background-color: #c0c0c0 ;
 }
 
 div#UserInfo

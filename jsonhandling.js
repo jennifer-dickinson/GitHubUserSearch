@@ -1,5 +1,5 @@
 function getFollowers(followers_url, page, count, numFollowers) {
-  var show = 24;
+  var show = 20;
   fetch(followers_url + "?per_page="+ show + "&page=" + page)
     .then( function (fL) {return fL.json()})
     .then( function (users) {
@@ -66,7 +66,7 @@ function loadUser(user) {
 
 function getUser() {
   text = document.getElementById('searchInput');
-  text.innerText = text.innerText.replace(/[^\w]/g, '');
+  text.innerText = text.innerText.replace(/[^\w\-\_]/g, '');
   name = text.innerText;
   var url = 'https://api.github.com/users/' + name;
   fetch(url)
@@ -101,7 +101,7 @@ document.getElementById('searchInput').addEventListener('paste', function(e) {
     var newString = ""
 
     for (var i = 0; i < childs.length; i++)
-      newString += childs[i].innerText.replace(/[^\w]/g, '');
+      newString += childs[i].innerText;
 
     input.innerText = newString.substring(0,20);
 
