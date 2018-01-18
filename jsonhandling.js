@@ -5,6 +5,7 @@ function getFollowers(followers_url, page, count, numFollowers) {
     .then( function (users) {
       var followers = document.getElementById('followers')
 
+
       for(var i = 0; i < users.length; i++) {
 
         var follower = document.createElement('div')
@@ -23,7 +24,7 @@ function getFollowers(followers_url, page, count, numFollowers) {
         follower.appendChild(name);
 
         follower.setAttribute('onClick',
-          "document.getElementById('searchInput').innerText = '" + users[i].login + "'; getUser();"
+          `document.getElementById('searchInput').innerText = '${users[i].login}'; getUser();`
         );
         followers.appendChild(follower);
       }
@@ -40,7 +41,7 @@ function getFollowers(followers_url, page, count, numFollowers) {
           }
           count += users.length;
           more.setAttribute('onClick',
-          "getFollowers('" + followers_url +  "'," + (page+1) + "," + count + "," + numFollowers + ");" );
+            `getFollowers("${followers_url}", ${page+1}, ${count}, ${numFollowers});`);
           document.getElementById('followers').appendChild(more);
         }
       else if (count > 0) {
@@ -53,11 +54,13 @@ function getFollowers(followers_url, page, count, numFollowers) {
 
 function loadUser(user) {
   document.getElementById('followers').innerText = "";
-  document.getElementById('searchInput').value = user.login;
   document.getElementById('username').innerText = user.login;
   document.getElementById('userAvatar').src = user.avatar_url;
   document.getElementById('realname').innerText = user.name;
   document.getElementById('location').innerText = user.location;
+  document.getElementById('profileLink').href = user.html_url;
+  document.getElementById('profileLink').innerText
+    = "View GitHub Profile";
   document.getElementById('bio').innerText = user.bio;
   document.getElementById('numFollowers').innerText =
     user.followers + " followers";
@@ -87,20 +90,14 @@ document.getElementById('searchButton').addEventListener('click', function() {
 });
 document.getElementById('searchInput').addEventListener('paste', function(e) {
   setTimeout(function() {
-    console.log(e);
-    // Get pasted data via clipboard API
-    var clipboardData = e.clipboardData || window.clipboardData || e.originalEvent.clipboardDat;
-    var pastedData = clipboardData.getData('text');
-    console.log(pastedData);
 
-    var input = document.getElementById('searchInput');
-    var childs = input.children;
+    var childs = this.children;
     var newString = ""
 
     for (var i = 0; i < childs.length; i++)
       newString += childs[i].innerText;
 
-    input.innerText = newString.substring(0,20);
+    this.innerText = newString.substring(0,20);
 
     ;}, 0);
 
